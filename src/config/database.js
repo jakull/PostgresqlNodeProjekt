@@ -1,5 +1,6 @@
 const { Pool } = require('pg');
-require('dotenv').config();
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../../.env') });
 const logger = require('./logger');
 
 const pool = new Pool({
@@ -11,7 +12,14 @@ const pool = new Pool({
 
 });
 
-const poolConfigToLog = { ...pool };
+pool.connect((err) => {
+  if (err) {
+    console.error('Fehler beim Herstellen der Verbindung zur Datenbank:', err);
+  } else {
+    console.log('Verbindung zur Datenbank hergestellt.');
+  }
+});
+//const poolConfigToLog = { ...pool };
 //logger.info(`Creating a new database pool with config: ${JSON.stringify(poolConfigToLog)}`);
 
 

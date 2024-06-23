@@ -1,0 +1,11 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5431,
+  "username": "postgres",
+  "password": "postgresuser",
+  "database": "postgres",
+  "synchronize": true,
+  "logging": false,
+  "entities": ["src/models/taskModelORM.ts"]
+}

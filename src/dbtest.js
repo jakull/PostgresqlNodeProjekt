@@ -1,13 +1,19 @@
-const pool = require('./config/database');
-const logger = require('./config/logger');
+const axios = require('axios');
 
-pool.query('SELECT * FROM angestellte', (err, res) => {
-    if (err) {
-      logger.error(`Database connection error: ${err.message}`);
-      logger.error(`Pool: ${JSON.stringify(pool, null, 2)}`);
-    } else {
-      logger.info(`Database connected successfully: ${JSON.stringify(res)}`);
-    }
-    console.log("RESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSPONSE:",res);
-    pool.end();
+// JSON-Daten, die du senden möchtest
+const data = {
+  name: 'Entwickler Nr.22',
+  dampft: true
+};
+
+// URL, an die der POST-Request gesendet werden soll
+const url = 'http://localhost:3000/angestellte';
+
+// Führe den POST-Request mit axios aus
+axios.post(url, data)
+  .then(response => {
+    console.log('Response:', response.data);
+  })
+  .catch(error => {
+    console.error('Error:', error);
   });
