@@ -16,7 +16,7 @@ const { UserController } = require("../controllers/angestellteController")
  *             schema:
  *               type: array
  *               items:
- *                 $ref: '#/components/schemas/User'
+ *                 
  */
 /**
  * @openapi
@@ -38,7 +38,7 @@ const { UserController } = require("../controllers/angestellteController")
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/User'
+ *              
  *       '404':
  *         description: Employee not found
  */
@@ -54,14 +54,14 @@ const { UserController } = require("../controllers/angestellteController")
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/CreateUserInput'
+ *             
  *     responses:
  *       '201':
  *         description: Employee created successfully
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/User'
+ *               
  *       '400':
  *         description: Bad request
  */
@@ -77,14 +77,14 @@ const { UserController } = require("../controllers/angestellteController")
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/AddEmailInput'
+ *             
  *     responses:
  *       '200':
  *         description: Email added successfully
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/User'
+ *              
  *       '404':
  *         description: Employee not found
  */
@@ -108,7 +108,7 @@ const { UserController } = require("../controllers/angestellteController")
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/User'
+ *               
  *       '404':
  *         description: Employee not found
  */
