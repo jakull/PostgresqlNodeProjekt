@@ -1,21 +1,23 @@
-<div>
-    <h1>Data from Backend:</h1>
-    <table border="1">
+<div class="p-6">
+  <h1 class="text-xl font-bold mb-4">Data from Backend:</h1>
+  <div class="overflow-x-auto">
+    <table class="min-w-full border border-gray-200">
       <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Dampft</th>
-          <th>E-mail</th>
+        <tr class="bg-gray-100">
+          <th class="border-b border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">ID</th>
+          <th class="border-b border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Name</th>
+          <th class="border-b border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Dampft</th>
+          <th class="border-b border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">E-mail</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of data">
-          <td>{{ item.id }}</td>
-          <td>{{ item.name }}</td>
-          <td>{{ item.dampft ? 'Ja' : 'Nein' }}</td>
-          <td>{{ item.email }}</td>
+        <tr *ngFor="let item of data" class="hover:bg-gray-50">
+          <td class="border-b border-gray-200 px-4 py-2 text-sm text-gray-800">{{ item.id }}</td>
+          <td class="border-b border-gray-200 px-4 py-2 text-sm text-gray-800">{{ item.name }}</td>
+          <td class="border-b border-gray-200 px-4 py-2 text-sm text-gray-800">{{ item.dampft ? 'Ja' : 'Nein' }}</td>
+          <td class="border-b border-gray-200 px-4 py-2 text-sm text-gray-800">{{ item.email }}</td>
         </tr>
       </tbody>
     </table>
   </div>
+</div>

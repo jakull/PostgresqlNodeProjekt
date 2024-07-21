@@ -8,6 +8,7 @@ const { createConnection } = require("typeorm");
 require('dotenv').config();
 const cors = require('cors');
 import * as bodyParser from "body-parser"
+import swaggerDocs from "./utils/swagger";
 
 
 AppDataSource.initialize().then(async () => {
@@ -19,6 +20,44 @@ AppDataSource.initialize().then(async () => {
   const app = express()
   app.use(bodyParser.json())
   app.use(cors());
+
+
+
+
+
+
+  app.post('/convert', (req: Request, res: Response) => {
+    const vttContent = req.body.vtt;
+    if (!vttContent) {
+        return res.status(400).send('VTT content is required');
+    }
+
+    const srtContent = convertVttToSrt(vttContent);
+    res.json({ srt: srtContent });
+});
+
+function convertVttToSrt(vttContent: string): string {
+    const lines = vttContent.split('\n');
+    let srtContent = '';
+    let srtIndex = 1;
+
+    for (const line of lines) {
+        console.log("aufgerufen");
+        if (line.trim().length === 0) {
+            srtContent += '\n';
+        } else if (/^\d{2}:\d{2}:\d{2}\.\d{3}/.test(line)) {
+            const srtTimestamp = line.replace('.', ',');
+            srtContent += srtTimestamp + '\n';
+        } else if (/^\d+$/.test(line)) {
+            srtContent += `${srtIndex++}\n`;
+        } else if (!/^WEBVTT/.test(line)) {
+            srtContent += line + '\n';
+        }
+    }
+
+    return srtContent;
+}
+
 
   // register express routes from defined application routes
   Routes.forEach(route => {
@@ -32,17 +71,17 @@ AppDataSource.initialize().then(async () => {
           }
       })
   })
-
+ console.log ("IIIIIII");
   // setup express app here
-  app.use('/api', sqlRoutes);
+  //app.use('/api', Routes);
   // ...
 
   // start express server
-  app.listen(3000)
+  app.listen(3000, async () => {
 
-
-  console.log("Express server has started on port 3000. Open http://localhost:3000/users to see results")
-
+  swaggerDocs(app, 3000);
+  console.log("Express server has started on port 3000. Open http://localhost:3000 to see results")
+});
 }).catch(error => console.log(error))
 
 

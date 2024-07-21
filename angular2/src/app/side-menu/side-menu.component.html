@@ -1,22 +1,27 @@
-<mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #sidenav mode="side" opened>
-      <mat-nav-list>
-        <a mat-list-item href="/home">Home</a>
-        <a mat-list-item href="/about">about</a>
-        <a mat-list-item href="#">Link 3</a>
-      </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content>
-      <mat-toolbar color="primary">
-        <button mat-icon-button (click)="sidenav.toggle()">
-          <mat-icon>menu</mat-icon>
-        </button>
-        <span>My Application</span>
-      </mat-toolbar>
-      <!-- Hauptinhalt -->
-      <div class="main-content">
-        <ng-content></ng-content>
-      </div>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-  
+<mat-sidenav-container class="sidenav-container h-screen">
+  <mat-sidenav #sidenav mode="side" opened class="bg-red-100 text-white shadow-lg">
+    <mat-nav-list>
+      <a mat-list-item href="/home" class="hover:bg-red-400 flex items-center p-4 transition duration-300 ease-in-out">
+        <div class="flex items-center"><mat-icon class="mr-2">home</mat-icon>Home</div>
+      </a>
+      <a mat-list-item href="/about" class="hover:bg-red-400 flex items-center p-4 transition duration-300 ease-in-out">
+        <div class="flex items-center"><mat-icon class="mr-2">info</mat-icon>About</div>
+      </a>
+      <a mat-list-item href="/upload" class="hover:bg-red-400 flex items-center p-4 transition duration-300 ease-in-out">
+        <div class="flex items-center"><mat-icon class="mr-2">cloud_upload</mat-icon>Upload</div>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="flex justify-between px-4 shadow-md">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="text-lg font-semibold">My Application</span>
+    </mat-toolbar>
+    <!-- Hauptinhalt -->
+    <div class="main-content p-4">
+      <ng-content></ng-content>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

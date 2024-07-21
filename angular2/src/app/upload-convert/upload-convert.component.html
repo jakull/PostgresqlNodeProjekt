@@ -1,0 +1,103 @@
+<section class="content-header"><h1>.VTT to .SRT Konverter</h1></section>
+<section class="content px-2">
+<div class="outer-container">
+  <div class="initial-container">
+  <div class="component-container "
+    [class.hovering]="isDragging"
+    (click)="fileSelector.click()"
+    (drop)="onDrop($event)"
+    (dragover)="onDragOver($event)"
+    (dragleave)="stopDrag($event)"
+    (dragend)="stopDrag($event)">
+
+    <div class="icon"><i class="fas fa-cloud-upload-alt"><div class="text">Drag &amp; drop or click</div></i></div>
+    <input #fileSelector type="file" accept=".vtt" multiple (change)="onFilesSelected($event.target.files)" hidden>
+  </div>
+  <app-anleitung></app-anleitung> 
+</div>
+</div>
+
+ <!--
+<div *ngIf="uploadedFiles.length > 0" class="uploaded-files">
+  <h3>Hochgeladene Dateien:</h3>
+  <div *ngFor="let file of uploadedFiles">
+    <p class="text">{{ file.file.name }}</p>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="20 20 448 512" width="30px" height="30px">
+          
+          <path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM112 256H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/>
+        </svg> 
+        <button class="button" mat-stroked-button (click)="convert(file)">Datei konvertieren</button>   
+        <button class="button" mat-stroked-button [disabled]="!file.converted" (click)="download(file)">Datei herunterladen</button>
+        <div *ngIf="file.loading"> 
+          <i class="fas fa-spinner fa-spin"></i>
+        </div> 
+
+  </div>
+</div>
+
+-->
+
+
+<div id="specific-card" class="card">
+<div class="card-header">
+<div class="card-body">
+  <h3>Hochgeladene Dateien:</h3>
+<div *ngIf="uploadedFiles.length > 0" class="uploaded-files">
+  
+    
+    
+    <div class="grid-container">
+    <div *ngFor="let file of uploadedFiles" class="grid-item">
+      <div class="card card-primary">
+        <div class="card-header">
+          <div class=" mittig">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="20 20 448 512" width="30px" height="30px">
+              <!-- Deine SVG-Inhalte hier -->
+              <path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM112 256H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/>
+            </svg> 
+            <p class="card-title">{{ file.file.name }}</p>
+          </div> 
+        
+              <div class="card-tools">
+              <button class="button" mat-stroked-button (click)="convert(file)">Datei konvertieren</button>   
+              <button class="button" mat-stroked-button [disabled]="!file.converted" (click)="download(file)">Datei herunterladen</button>
+            </div>
+          
+          </div>
+          
+          <div class="card-body">
+            <p class="format-text">
+              {{file.format}}
+          </p>
+            <button class="button" mat-stroked-button  (click)="openModal(file)">Show Content</button>
+            <p *ngIf="file.show">
+                {{file.content}}
+            </p>
+        </div>
+        
+        <div *ngIf="file.loading" class="overlay">
+          <i class="fas fa-2x fa-sync-alt fa-spin"></i>
+        </div>
+        
+      </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+</div>
+</div>
+</div>
+
+
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <p id="modal-content"></p>
+  </div>
+</div>
+
+</section>

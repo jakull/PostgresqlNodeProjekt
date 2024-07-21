@@ -1,0 +1,51 @@
+.anleitung {
+  background-color: #ebe6d6;
+  padding: 20px;
+  border-radius: 10px;
+  border: 4px solid #000000;
+  height: auto; /* Statt fester Höhe */
+  max-width: 100%; /* Maximale Breite auf 100% begrenzen */
+  box-sizing: border-box; /* Padding und Border in die Breite einrechnen */
+  margin: 0 auto; /* Zentrieren */
+}
+
+.anleitung h2 {
+  color: #333;
+  font-size: 2em; /* Große Schriftgröße für größere Bildschirme */
+}
+
+.anleitung p {
+  margin: 10px 0;
+}
+
+/* Media Query für Tablets und kleinere Bildschirme */
+@media (max-width: 768px) {
+  .anleitung {
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  .anleitung h2 {
+    font-size: 1.5em;
+  }
+
+  .anleitung p {
+    margin: 8px 0;
+  }
+}
+
+/* Media Query für Smartphones und sehr kleine Bildschirme */
+@media (max-width: 480px) {
+  .anleitung {
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .anleitung h2 {
+    font-size: 1.2em;
+  }
+
+  .anleitung p {
+    margin: 5px 0;
+  }
+}

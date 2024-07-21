@@ -11,13 +11,19 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { UploadConvertComponent } from './upload-convert/upload-convert.component';
+import { AnleitungComponent } from './anleitung/anleitung.component';
+import { MatButtonModule } from '@angular/material/button';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     SideMenuComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    UploadConvertComponent,
+    AnleitungComponent,
   ],
   imports: [
     MatSidenavModule,
@@ -26,7 +32,10 @@ import { AboutComponent } from './about/about.component';
     MatListModule,
     BrowserModule,
     AppRoutingModule,
-    CommonModule
+    CommonModule,
+    MatButtonModule,
+    HttpClientModule
+  
   ],
   providers: [
     provideClientHydration(),

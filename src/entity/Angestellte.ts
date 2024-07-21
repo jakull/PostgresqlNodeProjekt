@@ -12,4 +12,9 @@ export class Angestellte {
     @Column()
     dampft?: boolean
 
+    @Column({ nullable: true })
+    email?: string
+
+
+
 }

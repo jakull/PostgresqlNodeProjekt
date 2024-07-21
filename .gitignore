@@ -1,0 +1,7 @@
+Datenbank/
+node_modules/
+.env
+combined.log
+postgresql-16.3-1-windows-x64.exe
+test.txt
+todos.txt.txt
