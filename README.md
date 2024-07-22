@@ -10,5 +10,5 @@ Klone das Projekt in dein gewünschtes Verzeichnis und instaliere die erfordelic
 Anschließend kann das Express-Backend mit ```npm start``` gestartet werden und die Swagger-Dokumentation unter http://localhost:3000/docs aufgerufen werden.
 
 Um das Frontend zu starten navigiere in den ordner angular 2 mit ```cd angular2``` und instaliere hier erneut die dependencies mit ``` npm install```.
-Nun kann das angular Frontend mittels ```npm start``` gestartet werden und unter ```http://localhost:4200/``` im Browser geöffnet werden.
+Nun kann das angular Frontend mittels ```npm start``` gestartet werden und unter http://localhost:4200/ im Browser geöffnet werden.
 
